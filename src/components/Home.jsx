@@ -7,7 +7,7 @@ function Home() {
     let navigate = useNavigate();
   return (
    <div className='bg-zinc-200'>
-    <div className='bg-smBgImg  h-screen bg-cover gap-2 bg-no-repeat  flex flex-col justify-center px-5 '>
+    <div className='bgImg  h-screen bg-cover gap-2 bg-no-repeat  flex flex-col justify-center px-5 '>
         <h1 className='text-2xl md:text-[4vw] font-[200] leading-[1]'>
          Don't be slow! <br /> 
          <span className='font-[200]'>Explore Our New Arrivals</span>
