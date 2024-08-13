@@ -1,7 +1,7 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom';
 
-function Card({products}) {
+function Card({products,addToCart}) {
   
   let {title,image,price,id} = products;
   let navigate = useNavigate();
@@ -15,7 +15,7 @@ function Card({products}) {
         <h1  className='text-lg font-semibold leading-[1.1]'>{`${title.substring(0,20)}...`}</h1>
         <div className='flex justify-between'>
         <p className='font-bold'>${Number(Math.floor(price))}</p>
-        <button className='font-semibold' >Add to cart</button>
+        <button className='font-semibold' onClick={(event)=>addToCart(event,products)} >Add to cart</button>
         </div>
       </div> 
     </div>

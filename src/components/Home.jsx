@@ -3,7 +3,7 @@ import AllProudcts from './AllProudcts';
 import { useNavigate } from 'react-router-dom';
 
 
-function Home() {
+function Home({addToCart}) {
     let navigate = useNavigate();
   return (
    <div className='bg-zinc-200'>
@@ -23,7 +23,7 @@ function Home() {
         </div>
     </div>
     <h1 className='text-center text-2xl font-semibold mt-5'>Featured Products</h1>
-    <AllProudcts/>
+    <AllProudcts addToCart={addToCart}/>
 
    </div> 
 

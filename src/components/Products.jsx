@@ -3,10 +3,10 @@ import React, { useEffect, useState } from 'react'
 import Card from './Card';
 import Loader from './Loader';
 
-function Products() {
+function Products({addToCart}) {
     let categories = ["electronics","jewelery","men's clothing","women's clothing"]
 
-    let [category,setCategory]= useState([]);
+    let [categoryVal,setCategoryVal]= useState([]);
     let [productData,setProductData] = useState([]);
     let [option,setOption]= useState("all Products");
 
@@ -23,7 +23,7 @@ function Products() {
 
     useEffect(()=>{
         let filteredData = productData.filter((e,i)=> e.category === option );
-        setCategory(filteredData);
+        setCategoryVal(filteredData);
     },[option])
   return (
 
@@ -47,9 +47,9 @@ function Products() {
           <div className='grid gap-5 grid-cols-1 md:grid-cols-3 lg:grid-cols-4 '>
             {
                 option == "all Products" ?
-                productData.map((e,i)=> <Card key={e.id} products={e}/>)
+                productData.map((e,i)=> <Card addToCart={addToCart} key={e.id} products={e}/>)
                 :
-                category.map((e,i)=> <Card key={e.id} products={e}/>)
+                categoryVal.map((e,i)=> <Card addToCart={addToCart} key={e.id} products={e}/>)
             }
           </div>
           :

@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom';
 import Loader from './Loader';
 import Card from './Card';
 
-function SingleProduct() {
+function SingleProduct({addToCart}) {
   let {id} = useParams()
   let [singleProduct,setSingleProduct] = useState();
   let [realted,SetRealted] = useState([]);
@@ -21,9 +21,12 @@ function SingleProduct() {
   },[]);
 
   useEffect(()=>{
-    let filterd = realted.filter((e,i)=>e.category === singleProduct.category && e.id !== singleProduct.id)
-    setFilterdData(filterd);
-  },[singleProduct])
+        if(singleProduct && realted.length > 0){
+            let filterd = realted.filter((e,i)=> e.category == singleProduct.category && e.id != singleProduct.id)
+            setFilterdData(filterd);
+        }
+  },[singleProduct,realted])
+
   return (
    <div className='bg-zinc-200'>
     <div className='pt-10'>
@@ -68,7 +71,7 @@ function SingleProduct() {
 
         <div className='grid grid-cols-1 gap-5 px-4 py-5 pb-2 md:grid-cols-3 lg:grid-cols-4'>
             {
-                filteredData.map((e,i)=> <Card key={e.id} products={e}/>)
+                filteredData.map((e,i)=> <Card addToCart={addToCart} key={e.id} products={e}/>)
             }
           </div>
     </div>
