@@ -24,7 +24,7 @@ function Footer() {
             </div>
             <div className='flex gap-3 items-center cursor-pointer hover:text-zinc-300'>
               <IoMdMail/>
-              <p>shaheerwaqar02@gmail.com</p>
+              <p className='break-words w-full'>shaheerwaqar02@gmail.com</p>
             </div>
           </div>
         </div>

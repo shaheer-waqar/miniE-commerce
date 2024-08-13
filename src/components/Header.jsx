@@ -13,7 +13,7 @@ function Header({ cartData, deleteHandler }) {
   let [cartToggle, setCartToggle] = useState(false);
   return (
     <>
-      <div className="absolute w-full h-30">
+      <div className="absolute w-full ">
         <div
           className={`${!NavColor ? "bg-zinc-900 text-white" : ""}
         !NavColor ? "bg-zinc-900text-white " : ""}  relative z-[100] px-5 items-center    justify-between w-full py-2 flex`}
@@ -31,11 +31,16 @@ function Header({ cartData, deleteHandler }) {
           ${!NavColor ? "text-black md:text-white" : ""}`}
           >
             <ul className="flex flex-col md:flex-row gap-x-5 gap-y-0">
-              <li onClick={() => setToggle(false)}>
+              <li onClick={() => setToggle(false)} className="">
                 <NavLink
                   to="/"
                   className={({ isActive }) =>
-                    `${isActive ? "text-orange-500" : ""}`
+                    `${
+                      isActive ? "text-orange-500" : ""
+                    } relative hover:before:w-full
+                    before:transition-all before:duration-[.4s] before:h-[2px] before:w-0
+                    before:absolute before:bottom-0
+                    ${NavColor ? "before:bg-black" : "before:bg-white"}`
                   }
                 >
                   Home
@@ -45,7 +50,12 @@ function Header({ cartData, deleteHandler }) {
                 <NavLink
                   to="/about"
                   className={({ isActive }) =>
-                    `${isActive ? "text-orange-500" : ""}`
+                    `${
+                      isActive ? "text-orange-500" : ""
+                    } relative hover:before:w-full
+                    before:transition-all before:duration-[.4s] before:h-[2px] before:w-0
+                    before:absolute before:bottom-0
+                    ${NavColor ? "before:bg-black" : "before:bg-white"}`
                   }
                 >
                   About us
@@ -54,7 +64,12 @@ function Header({ cartData, deleteHandler }) {
               <li onClick={() => setToggle(false)}>
                 <NavLink
                   to="/product"
-                  className={`${isProductActive ? "text-orange-500" : ""}`}
+                  className={`${
+                    isProductActive ? "text-orange-500" : ""
+                  } relative
+                  hover:before:w-full before:transition-all before:duration-[.4s] before:h-[2px]
+                  before:w-0 before:absolute before:bottom-0
+                  ${NavColor ? "before:bg-black" : "before:bg-white"}`}
                 >
                   All Products
                 </NavLink>
@@ -68,15 +83,19 @@ function Header({ cartData, deleteHandler }) {
 
           <div className="flex gap-3 items-center">
             <div
-              className="text-xl relative"
+              className={`text-xl relative ${
+                NavColor ? "hover:bg-black/10" : "hover:bg-white/10"
+              } p-2 rounded-full cursor-pointer`}
               onClick={() => setCartToggle((prev) => !prev)}
             >
               <FaShoppingCart />
               <p
-                className="cursor-pointer bg-orange-500 absolute top-[-8px]
-                right-[-10px]  text-[12px] flex justify-center text-white
-                items-center text-center rounded-full w-[18px] h-[18px]"
-              >{cartData.length}</p>
+                className="cursor-pointer bg-orange-500 absolute top-[0px]
+                right-[-1px]  text-[12px] flex justify-center text-white
+                items-center text-center rounded-full w-[16px] h-[16px] "
+              >
+                {cartData.length}
+              </p>
             </div>
 
             <div className="inline-block md:hidden text-3xl">
