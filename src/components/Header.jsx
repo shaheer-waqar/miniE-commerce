@@ -26,7 +26,7 @@ function Header({ cartData, deleteHandler }) {
 
           <div
             className={`absolute md:static w-full right-0 md:w-auto flex justify-between
-          bg-white md:bg-transparent  z-2 px-1 py-2 font-[500] 
+          bg-white md:bg-transparent  z-[100] px-1 py-2 font-[500] 
           transition-all duration-300  ${toggle ? "top-0" : "top-[-120px]"}
           ${!NavColor ? "text-black md:text-white" : ""}`}
           >
