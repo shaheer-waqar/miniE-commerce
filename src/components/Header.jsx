@@ -83,9 +83,8 @@ function Header({ cartData, deleteHandler }) {
 
           <div className="flex gap-3 items-center">
             <div
-              className={`text-xl relative ${
-                NavColor ? "hover:bg-black/10" : "hover:bg-white/10"
-              } p-2 rounded-full cursor-pointer`}
+              title="Add to cart"
+              className={`text-xl relative  p-2 rounded-full cursor-pointer`}
               onClick={() => setCartToggle((prev) => !prev)}
             >
               <FaShoppingCart />

@@ -1,5 +1,7 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom';
+import { BsHandbagFill } from "react-icons/bs";
+
 
 function Card({products,addToCart}) {
   
@@ -11,11 +13,11 @@ function Card({products,addToCart}) {
         <img className='w-[100%] h-[300px]  object-cover md:object-fill ' src={image} />
         <div className='bg-transparent group-hover:bg-black/40 duration-700 absolute w-full top-0 z-30 h-full'></div>
       </div>
-      <div className='flex flex-col gap-2 pt-2'>
+      <div className='flex flex-col gap-2 pt-2 px-1'>
         <h1  className='text-lg font-semibold leading-[1.1]'>{`${title.substring(0,20)}...`}</h1>
         <div className='flex justify-between'>
         <p className='font-bold'>${Number(Math.floor(price))}</p>
-        <button className='font-semibold' onClick={(event)=>addToCart(event,products)} >Add to cart</button>
+        <button className='font-semibold hover:text-black/70 transition-all duration-300 hover:scale-[0.9]' onClick={(event)=>addToCart(event,products)} >Add to cart</button>
         </div>
       </div> 
     </div>

@@ -12,7 +12,7 @@ function Home({ addToCart }) {
           <span className="font-[200]">Check Out New Arrivals</span>
         </h1>
 
-        <div className="mt-2 px-1">
+        <div className="mt-2">
           <button
             onClick={() => navigate("/product")}
             className=" relative overflow-hidden border border-black  transition-all before:absolute 

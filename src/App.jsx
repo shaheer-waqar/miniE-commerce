@@ -15,7 +15,7 @@ function App() {
     event.stopPropagation();
     let checkData = cartData.some((e)=>e.id == data.id);
     if(!checkData){
-      setCartData([...cartData,data]);
+      setCartData([data,...cartData]);
     }
   }
 

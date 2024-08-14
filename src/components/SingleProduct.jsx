@@ -4,11 +4,14 @@ import { useParams } from "react-router-dom";
 import Loader from "./Loader";
 import Card from "./Card";
 
+
 function SingleProduct({ addToCart }) {
   let { id } = useParams();
   let [singleProduct, setSingleProduct] = useState();
   let [realted, SetRealted] = useState([]);
   let [filteredData, setFilterdData] = useState([]);
+  let [productCount,setProductCount] = useState(1);
+
 
   useEffect(() => {
     axios
@@ -53,17 +56,24 @@ function SingleProduct({ addToCart }) {
                 <h1 className="bold text-2xl uppercase">
                   {singleProduct.title}
                 </h1>
-                <p className="font-bold text-lg ">${singleProduct.price}</p>
-                <div>
+                <p className="font-bold text-lg ">${Number(Math.floor(singleProduct.price))}</p>
+                <div className="flex gap-2">
                   <button
-                    className="bg-black text-white px-3 py-1 rounded-[5px]
+                    className="bg-black text-white px-3 py-1 rounded-[3px]
                   hover:bg-black/80 duration-300"
                   >
                     Buy Now
                   </button>
+                  <button
+                    onClick={(e)=>addToCart(e,singleProduct)}
+                    className="bg-transparent border border-black  text-black px-3 py-1 rounded-[3px]
+                  hover:bg-black hover:text-white duration-300 flex items-center gap-1"
+                  >
+                    Add To Cart
+                  </button>
                 </div>
-                <div>
-                  <h4 className="mb-1">Description</h4>
+                <div> 
+                  <h4 className="mb-1 font-semibold">Description</h4>
                   <p className="text-zinc-600">{singleProduct.description}</p>
                 </div>
               </div>
